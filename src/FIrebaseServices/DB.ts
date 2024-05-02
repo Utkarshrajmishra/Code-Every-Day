@@ -7,6 +7,7 @@ class DB{
     
         await setDoc(doc(db,"userInfo",email),userData)
         .then((res)=>{
+            this.addDate(email);
             return true;
         })
         .catch((error)=>{
@@ -19,8 +20,13 @@ class DB{
 
     async addDate(email:string)
     {
-        const dates={}
-        await setDoc(doc(db,"problemDates",email),dates)
+        let currentDate=new Date();
+        let datesObject:any={};
+        for(let i=0;i<30;i++){
+            let dateKey=new Date(currentDate).toLocaleDateString();
+            datesObject[i]=dateKey;
+        }
+        await setDoc(doc(db,"UserDates",email),datesObject);
     }
 }
 
