@@ -1,4 +1,4 @@
-import { doc, setDoc } from "firebase/firestore";
+import { doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "../firebase";
 class DB{
   
@@ -15,6 +15,23 @@ class DB{
         })
        
     }
+
+    // async getProblem(email:string)
+    // {
+    //     const docRef=doc(db,"Problems",email);
+    //     const docsnap=await getDoc(docRef);
+    //     if(docsnap.exists())
+    //         {
+    //             return docRef
+    //         }
+    //     else{
+    //         return false;
+    //     }
+    // }
+
+
+
+    
 
     
 
